@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
   def index
-    @lists = list.all
+    @lists = List.all
   end
 
   def show
@@ -14,8 +14,11 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
-    redirect_to list_path(@list)
+    if @list.save
+      redirect_to list_path(@list), notice: 'Your list was successfully created!'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,14 +27,17 @@ class ListsController < ApplicationController
 
   def update
     # @list = list.find(params[:id])
-    @list.update(list_params)
-    redirect_to list_path(@list)
+    if @list.update(list_params)
+      redirect_to list_path(@list), notice: 'Your list was successfully updated!'
+    else
+      render :new
+    end
   end
 
   def destroy
     # @list = list.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to lists_path, notice: 'Your list was successfully destroyed!'
   end
 
   private
@@ -39,7 +45,7 @@ class ListsController < ApplicationController
   # strong methods:
 
   def list_params
-    params.require(:list).permit(:title, :details, :completed)
+    params.require(:list).permit(:name)
   end
 
   def find_list
