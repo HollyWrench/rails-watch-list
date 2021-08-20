@@ -1,21 +1,17 @@
 class BookmarksController < ApplicationController
-  before_action :find_bookmark, only: [:show, :edit, :update, :destroy]
-  def index
-    @bookmarks = Bookmark.all
-  end
-
-  def show
-    # @bookmark = bookmark.find(params[:id])
-  end
+  # before_action :find_bookmark, only: [:show, :edit, :update, :destroy]
 
   def new
     @bookmark = Bookmark.new
+    @list = List.find(params[:list_id])
   end
 
   def create
+    @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.list = @list
     if @bookmark.save
-      redirect_to bookmark_path(@bookmark), notice: 'Your bookmark was successfully created!'
+      redirect_to list_path(@list), notice: 'Your bookmark was successfully created!'
     else
       render :new
     end
@@ -28,7 +24,7 @@ class BookmarksController < ApplicationController
   def update
     # @bookmark = bookmark.find(params[:id])
     if @bookmark.update(bookmark_params)
-      redirect_to bookmark_path(@bookmark), notice: 'Your bookmark was successfully updated!'
+      redirect_to list_path(@list), notice: 'Your bookmark was successfully updated!'
     else
       render :new
     end
@@ -45,7 +41,7 @@ class BookmarksController < ApplicationController
   # strong methods:
 
   def bookmark_params
-    params.require(:bookmark).permit(:name)
+    params.require(:bookmark).permit(:comment, :movie_id)
   end
 
   def find_bookmark

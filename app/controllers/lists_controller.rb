@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :find_list, only: [:show, :edit, :update, :destroy]
   def index
     @lists = List.all
+    @movies = Movie.all
   end
 
   def show
@@ -37,7 +38,7 @@ class ListsController < ApplicationController
   def destroy
     # @list = list.find(params[:id])
     @list.destroy
-    redirect_to lists_path, notice: 'Your list was successfully destroyed!'
+    redirect_to root_path, notice: 'Your list was successfully destroyed!'
   end
 
   private

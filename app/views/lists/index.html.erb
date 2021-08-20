@@ -1,2 +1,28 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<h1>Here are your lists!!</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li>
+      <%= link_to list.name, list_path(list) %>
+      <button class="btn btn-primary"><%= link_to '--- Edit 📝 🔎 🖍 ✂️ 🧷', edit_list_path(list)  %></button>
+      <button class="btn btn-info"><%= link_to '--- Delete ✂️ 🚫 🚨', list_path(list), method: :delete, data: { confirm: "Are you sure?" } %></button>
+    </li>
+  <% end %>
+
+  <li><%= link_to 'Add a new list 📝 !', new_list_path %></li>
+
+</ul>
+
+
+<h2>Here are your movies!!</h2>
+
+<div class="cards">
+
+  <% @movies.each do |movie| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/assets/moana.jpeg)">
+      <h4><%= movie.title %></h4>
+      <h4><%=  %></h4>
+    </div>
+  <% end %>
+
+</div>

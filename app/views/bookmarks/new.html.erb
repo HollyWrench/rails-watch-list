@@ -1,2 +1,14 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<h1>Add a bookmark to your list!</h1>
+
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%# parameters above - used to create the path: %>
+  <%# POST /lists/:list_id/bookmarks(.:format) %>
+  <%= f.input :comment %>
+  <%= f.association :movie, prompt: "Choose a Movie"  %>
+  <%# default = a dropdown list ^^^, no more code needed %>
+  <%# a bookmark needs a movie_id and list_id - movie_id comes from whichever %>
+  <%# movie you select, and it already has the list_id from @list that you're passing it %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '🔸 Go b⏪a🔸c(🔙)k to lists 📝 📝 📝', root_path  %>

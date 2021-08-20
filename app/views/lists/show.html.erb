@@ -1,2 +1,31 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1>Your list:</h1>
+
+<p>❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎</p>
+
+<h4><%= @list.name %></h4>
+
+<h5><%= "You don't have any movies in your list yet!" if @list.movies.count == 0 %></h5>
+
+<h3>Movies in your list:</h3>
+<ul>
+  <li>
+    <% @list.movies.each do |movie|  %>
+      <%= movie.title %>
+      <ul>
+        <li><%= movie.overview  %></li>
+        <li><%  bookmark = Bookmark.find_by(list: @list, movie: movie) %></li>
+        <%= bookmark.comment %>
+        <li><%= "Bookmark/comment: #{bookmark}" %></li>
+        <li><%= "Rating: #{movie.rating} ⭐️s"%></li>
+      </ul>
+    <% end %>
+  </li>
+
+</ul>
+
+<ul>
+  <li><%= link_to 'Add a bookmark 📚📍 to your list 📝', new_list_bookmark_path(@list)  %></li>
+  <li><%= link_to 'Edit 📝 🔎 🖍 ✂️ 🧷', edit_list_path(@list)  %></li>
+  <li><%= link_to 'Delete ✂️ 🚫 🚨', list_path(@list), method: :delete, data: { confirm: "Are you sure?" } %></li>
+  <li><%= link_to '🔸 Go b⏪a🔸c(🔙)k to lists 📝 📝 📝', root_path  %></li>
+</ul>
