@@ -1,10 +1,14 @@
-<h1>Your list:</h1>
+<%# <h1>Your list:</h1> %>
 
-<p>❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/assets/moana.jpeg);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+    <h4><%= "You don't have any movies in your list yet!" if @list.movies.count == 0 %></h4>
+    <h4><%= "You have #{@list.movies.count} movies in your list!" if @list.movies.count > 0 %></h4>
+  </div>
+</div>
 
-<h4><%= @list.name %></h4>
 
-<h5><%= "You don't have any movies in your list yet!" if @list.movies.count == 0 %></h5>
 
 <h3>Movies in your list:</h3>
 <ul>
@@ -13,8 +17,8 @@
       <%= movie.title %>
       <ul>
         <li><%= movie.overview  %></li>
-        <li><%  bookmark = Bookmark.find_by(list: @list, movie: movie) %></li>
-        <%= bookmark.comment %>
+        <%  bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+        <li><%= bookmark.comment %></li>
         <li><%= "Bookmark/comment: #{bookmark}" %></li>
         <li><%= "Rating: #{movie.rating} ⭐️s"%></li>
       </ul>
