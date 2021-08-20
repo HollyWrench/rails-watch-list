@@ -9,7 +9,7 @@
     </li>
   <% end %>
 
-  <li><%= link_to 'Add a new list 📝 !', new_list_path %></li>
+  <li><%= link_to 'Add a new list 📝 !!!', new_list_path %></li>
 
 </ul>
 
@@ -19,7 +19,8 @@
 <div class="cards">
 
   <% @movies.each do |movie| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/assets/moana.jpeg)">
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
       <h4><%= movie.title %></h4>
       <h4><%=  %></h4>
     </div>

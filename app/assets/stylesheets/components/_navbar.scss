@@ -1,12 +1,26 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar .navbar-images img {
+  height: 40px;
 }
+
+.navbar .navbar-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: auto 0;
+  & :hover {
+    text-decoration: none;
+    color: #0155b4
+  }
+
+}
+
+// color of text: #167FFB
