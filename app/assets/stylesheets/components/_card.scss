@@ -6,10 +6,21 @@
   padding: 20px;
 }
 
+
+.list-card-category {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 8px;
+  border-radius: 8px;
+  background-size: contain;
+  color: white;
+}
+
 .card-category {
   padding: 60px;
   border-radius: 8px;
-  background-size: cover;
+  background-size: contain;
   // ^^ for full image to be seen, not just maui's face
 }
 
