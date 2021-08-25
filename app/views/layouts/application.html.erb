@@ -10,6 +10,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
 
   <body>
@@ -45,5 +46,10 @@
     <%# <p>❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎</p> %>
     <%= yield %>
     <%# <p>❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎ ❇︎</p> %>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <%# these three lines are from online docs on AOS library for animated scrolling %>
   </body>
 </html>

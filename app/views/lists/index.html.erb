@@ -25,7 +25,7 @@
 
   <% @movies.each do |movie| %>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
+    <div class="card-category" data-aos="zoom-in-up" data-aos-duration=90 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
       <h4><%= movie.title %></h4>
       <h4><%=  %></h4>
     </div>
