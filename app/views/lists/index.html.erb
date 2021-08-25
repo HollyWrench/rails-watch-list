@@ -5,6 +5,7 @@
     <div class="list-card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/assets/popcorn.png)">
       <div>
         <button class="btn btn-primary btn-sm"><%= link_to list.name, list_path(list) %></button>
+        <%# styling in _button.scss is if ^^ this button's class is changed to javascript-button %>
       </div>
       <div>
         <button class="btn btn-primary btn-sm"><%= link_to '--- Edit 📝 🔎 🖍 ✂️ 🧷', edit_list_path(list)  %></button>
